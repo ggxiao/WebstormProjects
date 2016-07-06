@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!-- HTML结构 -->
+<ul id="test-list">
+    <li>JavaScript</li>
+    <li>Swift</li>
+    <li>HTML</li>
+    <li>ANSI C</li>
+    <li>CSS</li>
+    <li>DirectX</li>
+</ul>
+<body>
+<script>
+    'use strict';
+    var list = document.getElementById('test-list');
+
+    for (var x of list.children) {
+        for (var y of ['Swift', 'ANSI C', 'DirectX']) {
+            if (x.innerText === y) {
+                alert(y +' is removed..');
+                list.removeChild(x);
+            }
+        }
+    }
+
+
+
+    // 测试:
+    ;(function () {
+        var
+                arr, i,
+                t = document.getElementById('test-list');
+        if (t && t.children && t.children.length === 3) {
+            arr = [];
+            for (i = 0; i < t.children.length; i ++) {
+                arr.push(t.children[i].innerText);
+            }
+            if (arr.toString() === ['JavaScript', 'HTML', 'CSS'].toString()) {
+                alert('测试通过!');
+            }
+            else {
+                alert('测试失败: ' + arr.toString());
+            }
+        }
+        else {
+            alert('测试失败!');
+        }
+    })();
+
+</script>
+
+</body>
+</html>
